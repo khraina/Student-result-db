@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+<!-- Title -->
+{% block title %}Teacher - Upload{% endblock title %}
+
+<!-- Body -->
+{% block body %}
+
+<form action="/upload" method="post">
+    <input type="number" name="Batch" id="Batch" />
+    <input type="number" name="Sem" id="Sem" />
+
+    <input type="file" name="file" id="file" />
+    <button type="submit">Submit</button>
+    <button type="reset">Clear Contents</button>
+</form>
+
+{% endblock body %}

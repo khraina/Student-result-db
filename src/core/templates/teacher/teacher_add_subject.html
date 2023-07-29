@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+<!-- title -->
+{% block title %}Add Subject{% endblock title %}
+
+<!-- Body -->
+{% block body %}
+<form action="/teacher/addsub" method="post">
+    <input type="number" name="Sem" id="Sem" />
+    <input type="text" name="subcode" id="SubCode" />
+    <button type="submit">Add</button>
+    <button type="reset">Clear</button>
+</form>
+
+{% for subject in subject_list%}
+<!-- data -->
+{{ subject.id }} - {{ subject.Sem }} - {{ subject.SubCode }} <br />
+<!-- end of for -->
+{% endfor %}
+
+<!-- End - Body -->
+{% endblock body %}
