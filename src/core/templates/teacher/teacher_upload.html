@@ -3,11 +3,13 @@
 <!-- Title -->
 {% block title %}Teacher - Upload{% endblock title %}
 
-<!-- Body -->
+<!-- Start - Body -->
 {% block body %}
 
-<form action="/upload" method="post">
+<form action="/teacher/upload" method="post">
+    <label for="Batch">Batch</label>
     <input type="number" name="Batch" id="Batch" />
+    <label for="Sem">Semester</label>
     <input type="number" name="Sem" id="Sem" />
 
     <input type="file" name="file" id="file" />
@@ -15,4 +17,26 @@
     <button type="reset">Clear Contents</button>
 </form>
 
+<!-- Preview -->
+<!-- Start - If -->
+{% if data %}
+
+<!-- Student -->
+{% for student in student_list %}
+
+<!-- data -->
+{{ student.id }} - {{ student.Sem }} - {{ student.SubCode }} <br />
+
+<!-- End - for -->
+{% endfor %}
+
+<!-- If no data is found -->
+{% else %}
+
+<h1>No data found</h1>
+
+<!-- End - if -->
+{% endif %}
+
+<!-- End Body -->
 {% endblock body %}
