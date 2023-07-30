@@ -24,7 +24,6 @@ class Student(db.Model):
     Cumilative_Credits = db.Column(db.Integer)
     SGPA = db.Column(db.Integer)
     CGPA = db.Column(db.Integer)
-    result_id = db.Column(db.Integer, db.ForeignKey('results.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
@@ -41,15 +40,6 @@ class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Sem = db.Column(db.Integer, nullable=False)
     SubCode = db.Column(db.String(10))
-    results = db.relationship('Result', backref='subject', lazy=True)
-
-
-class Result(db.Model):
-    __tablename__ = 'results'
-    id = db.Column(db.Integer, primary_key=True)
-    grade = db.Column(db.String(2))
-    student_id = db.Column(db.Integer, db.ForeignKey('students.id'))
-    subject_id = db.Column(db.Integer, db.ForeignKey('subjects.id'))
 
 class Sem1(db.Model):
     id = db.Column(db.Integer,primary_key=True)
