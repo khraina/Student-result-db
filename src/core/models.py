@@ -136,15 +136,6 @@ class Sem5(db.Model):
     SGPA = db.Column(db.Integer,nullable=False)
     CGPA = db.Column(db.Integer,nullable=False)
 
-# CST302 - Compiler Design
-# CST304 - Computer Graphics And Image Processing
-# CST306 - Algorithm Analysis And Design
-# CST322 - Data Analytics
-# CST332 - Foundations Of Security In Computing
-# HUT300 - Industrial Economics And Foreign Trade
-# CST308 - Comprehensive Course Work
-# CSL332 - Networking Lab
-
 class Sem6(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     RegNo = db.Column(db.String(10),nullable=False)
