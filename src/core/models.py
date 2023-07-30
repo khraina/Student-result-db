@@ -79,7 +79,7 @@ class Sem2(db.Model):
     HUN102 = db.Column(db.String(10),nullable=False)
     CYL120 = db.Column(db.String(10),nullable=False)
     ESL120 = db.Column(db.String(10),nullable=False)
-    EST102 = db.Column(db.String(10),nullable=False)
+    ESL102 = db.Column(db.String(10),nullable=False)
     Earned_Credits = db.Column(db.Integer,nullable=False)
     Cumilative_Credits = db.Column(db.Integer,nullable=False)
     SGPA = db.Column(db.Integer,nullable=False)
