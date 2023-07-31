@@ -242,9 +242,28 @@ def upload_csv():
 
 def filter_students_f(count: int, sem: int):
 
-    all_students = sem.query.all()
+    sem = int(sem)
+    if sem == 1:
+        all_students = Sem1.query.all()
+    elif sem == 2:
+        all_students = Sem2.query.all()
+    elif sem == 3:
+        all_students = Sem3.query.all()
+    elif sem == 4:
+        all_students = Sem4.query.all()
+    elif sem == 5:
+        all_students = Sem5.query.all()
+    elif sem == 6:
+        all_students = Sem6.query.all()
+    elif sem == 7:
+        all_students = Sem7.query.all()
+    elif sem == 8:
+        all_students = Sem8.query.all()
+    # all_students = sem.query.all()
 
+    # all_students = Sem4.query.all()
     students_f_grade = []
+    
 
     for student in all_students:
         if sem == 1:
