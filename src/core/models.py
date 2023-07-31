@@ -40,6 +40,12 @@ class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     Sem = db.Column(db.Integer, nullable=False)
     SubCode = db.Column(db.String(10))
+class Batch(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    b6 = db.Column(db.Integer,nullable=False)
+    b7 = db.Column(db.Integer,nullable=False)
+    b8 = db.Column(db.Integer,nullable=False)
+    b9 = db.Column(db.Integer,nullable=False)
 
 class Sem1(db.Model):
     id = db.Column(db.Integer,primary_key=True)
