@@ -240,7 +240,7 @@ def upload_csv():
     return render_template("/teacher/teacher_upload.html")
 
 
-def filter_students_f(count: int, sem: int):
+def filter_students_f(count: int, sem: int, Grade: str):
 
     sem = int(sem)
     if sem == 1:
@@ -331,7 +331,7 @@ def filter_students_f(count: int, sem: int):
                 student.CSD416
             ]
 
-        f_count = subjects.count('F')
+        f_count = subjects.count(Grade)
 
         if f_count == count:
             students_f_grade.append(student)
@@ -345,6 +345,7 @@ def filter_by_grade_f():
 
         sem = request.form.get('sem')
         Selct_value = request.form.get('Select_value')
+        grade = request.form.get('grade')
 
         if Selct_value == "1":
             students = filter_students_f(count=1, sem=sem)
@@ -359,11 +360,17 @@ def filter_by_grade_f():
             return render_template('filterbygrade/test.html', students=students, sem=sem)
 
         elif Selct_value == "4":
-            students = filter_students_f(count=4, sem=sem)
+            students = filter_students_f(count=4)
             return render_template('filterbygrade/test.html', students=students, sem=sem)
 
         elif Selct_value == "5":
             students = filter_students_f(count=5, sem=sem)
+            return render_template('filterbygrade/test.html', students=students, sem=sem)
+        elif Selct_value == "5":
+            students = filter_students_f(count=5, sem=sem)
+            return render_template('filterbygrade/test.html', students=students, sem=sem)
+        else:
+            students = filter_students_f(count=2, sem=sem, Grade=Selct_value)
             return render_template('filterbygrade/test.html', students=students, sem=sem)
 
     return render_template('filterbygrade/test.html')
