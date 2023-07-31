@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, jsonify, url_for
+from flask import Blueprint, render_template, request, redirect, jsonify, url_for, flash
 import pandas as pd
 from ..models import *
 from .. import db
@@ -36,8 +36,8 @@ def addsub():
 def upload_csv():
     if request.method == 'POST':
 
-        sem = request.form.get('Sem')
-        batch = request.form.get('Batch')
+        sem = int(request.form.get('Sem'))
+        batch = int(request.form.get('Batch'))
         file = request.files['file']
 
         if file.filename == '':
@@ -45,6 +45,7 @@ def upload_csv():
             return redirect(request.url)
 
         if file and file.filename.endswith('.csv'):
+            print("enter the csv func")
             try:
                 # Read the CSV data and store it in the database
                 df = pd.read_csv(file)
@@ -114,10 +115,12 @@ def upload_csv():
 
                 # Add the other semmisters here
                 elif sem == 4:
+                    print("\n\nAt the If 4\n\n")
                     for index, row in df.iterrows():
                         data = Sem4(
-                            RegNo=row['RegNo'],
+                            RegNo=row['Reg.No'],
                             Name=row['Name'],
+                            batch= batch,
                             EST200=row['EST200'],
                             MCN202=row['MCN202'],
                             CST202=row['CST202'],
@@ -126,8 +129,8 @@ def upload_csv():
                             CSL202=row['CSL202'],
                             CSL204=row['CSL204'],
                             MAT206=row['MAT206'],
-                            Earned_Credits=row['Earned_Credits'],
-                            Cumilative_Credits=row['Cumilative_Credits'],
+                            Earned_Credits=row['Earned Credits'],
+                            Cumilative_Credits=row['Cumilative Credits'],
                             SGPA=row['SGPA'],
                             CGPA=row['CGPA']
                         )
@@ -219,12 +222,17 @@ def upload_csv():
                         db.session.add(data)
                         db.session.commit()
 
+                else:
+                    print(f"\n\nWarning exited without entering if\n\n {sem=} \n\n")
+
                 flash('CSV file uploaded successfully!', 'success')
 
             except Exception as e:
                 flash(f'Error: {str(e)}', 'error')
 
-            return redirect(url_for('/teacher/upload'))
+            # return redirect(url_for('/teacher/uploads'))
+            return redirect(url_for('TeacherViews.upload_csv'))
+            # return redirect(url_for('index'))
 
         flash('Invalid file format. Only CSV files are allowed!', 'error')
         return redirect(request.url)

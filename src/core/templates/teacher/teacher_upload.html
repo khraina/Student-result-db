@@ -6,7 +6,7 @@
 <!-- Start - Body -->
 {% block body %}
 
-<form action="/teacher/upload" method="post">
+<form action="/teacher/uploads" method="POST" enctype="multipart/form-data">
     <label for="Batch">Batch</label>
     <input type="number" name="Batch" id="Batch" />
     <label for="Sem">Semester</label>
