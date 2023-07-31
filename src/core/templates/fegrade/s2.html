@@ -1,0 +1,97 @@
+{% extends 'base.html' %} 
+<!-- Page Title -->
+{% block title %} FE_Grade {% endblock title %} 
+
+<!-- Page - Body -->
+{% block body %}
+
+<!-- New code -->
+<h1 class="mt-4">FE Grade Students</h1>
+<table class="table table-hover text-center table-bordered">
+    <thead>
+        <tr>
+        <th scope="col">SNo</th>
+        <th scope="col">RegNo</th>
+        <th scope="col">Name</th>
+        <th scope="col">EST120</th>
+        <th scope="col">CYT100</th>
+        <th scope="col">EST110</th>
+        <th scope="col">MAT102</th>
+        <th scope="col">EST102</th>
+        <th scope="col">HUN102</th>
+        <th scope="col">CYL120</th>
+        <th scope="col">ESL120</th>
+        <th scope="col">ESL102</th>
+        </tr>
+    </thead>
+
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td scope="row">{{ loop.index }}</td>
+                    <td>{{ student.RegNo }}</td>
+                    <td>{{ student.Name }}</td>
+                    <!-- Math -->
+                    {% if student.EST120  == "FE" %}
+                        <td>{{ student.EST120  }}</td>
+                    {% else %}
+                        <td> - </td>
+                    {% endif %}
+                    
+                    {% if student.CYT100  == "FE" %}
+                        <td>{{ student.CYT100  }}</td>
+                    {% else %}
+                        <td> - </td>
+                    {% endif %}
+
+                    {% if student.EST110 == "FE" %}
+                        <td>{{ student.EST110 }}</td>
+                    {% else %}
+                    <td> - </td>
+                    {% endif %}
+
+                    {% if student.MAT102 == "FE" %}
+                        <td>{{ student.MAT102 }}</td>
+                    {% else %}
+                    <td> - </td>
+                    {% endif %}
+
+                    {% if student.EST102 == "FE" %}
+                        <td>{{ student.EST102 }}</td>
+                    {% else %}
+                    <td> - </td>
+                    {% endif %}
+
+                    {% if student.HUN102 == "FE" %}
+                        <td>{{ student.HUN102 }}</td>
+                    {% else %}
+                    <td> - </td>
+                    {% endif %}
+
+                    {% if student.CYL120 == "FE" %}
+                        <td>{{ student.CYL120 }}</td>
+                    {% else %}
+                    <td> - </td>
+                    {% endif %}
+
+                    {% if student.ESL120 == "FE" %}
+                        <td>{{ student.ESL120 }}</td>
+                    {% else %}
+                    <td> - </td>
+                    {% endif %}
+
+                    {% if student.ESL102 == "FE" %}
+                        <td>{{ student.ESL102 }}</td>
+                    {% else %}
+                    <td> - </td>
+                    {% endif %}
+
+
+                   
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock body %}
