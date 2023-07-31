@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %} Filter Grade {% endblock  %}
+{% block body %}
+<div class="container card p-3">
+  <h1 class="mt-4">VIEW</h1>
+  <form action= "/filter_By_Grade" method="POST">
+    <select class="form-select " name="Select_value" aria-label="select example">
+    <option selected>Select</option>
+    <option value="1">Result</option>
+    <option value="2">F Grade</option>
+    <option value="3">1F</option>
+    <option value="4">2F</option>
+    <option value="5">3F</option>
+    <option value="6">4F</option>
+    <option value="7">5F</option>
+    <option value="8">Above 5F</option>
+    <option value="9">FE</option>
+    <option value="10">S</option>
+    <option value="11">A</option>
+    <option value="12">A+</option>
+    <option value="13">B</option>
+    <option value="14">B+</option>
+    <option value="15">C</option>
+    <option value="16">C+</option>
+    <option value="17">D</option>
+
+  </select>
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<!-- Table -->
+<!-- <h1 class="mt-4">1F Grade Students</h1> -->
+
+<table class="table table-hover text-center table-bordered">
+    <thead>
+        <tr>
+        <th scope="col">SNo</th>
+        <th scope="col">RegNo</th>
+        <th scope="col">Name</th>
+        <th scope="col">CST402</th>
+        <th scope="col">CST434</th>
+        <th scope="col">CST414</th>
+        <th scope="col">CST466</th>
+        <th scope="col">CST416</th>
+        <th scope="col">CST428</th>
+        <th scope="col">CST448</th>
+        <th scope="col">CST404</th>
+        <th scope="col">CSD416</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+                        {% for student in students %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ student.RegNo }}</td>
+                    <td>{{ student.Name }}</td>
+                    <td>{{ student.CST402 }}</td>
+                    <td>{{ student.CST434 }}</td>
+                    <td>{{ student.CST414 }}</td>
+                    <td>{{ student.CST466 }}</td>
+                    <td>{{ student.CST416 }}</td>
+                    <td>{{ student.CST428 }}</td>
+                    <td>{{ student.CST448 }}</td>
+                    <td>{{ student.CST404 }}</td>
+                    <td>{{ student.CSD416 }}</td>
+                    
+                </tr>
+                {% endfor %}
+
+    </tbody>
+  </table>
+  
+{% endblock body %}
