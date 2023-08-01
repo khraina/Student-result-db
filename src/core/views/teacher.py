@@ -341,6 +341,8 @@ def filter_students(count: int, sem: int, Grade: str):
 
 @TeacherViews.route("/filter_by_grade", methods=['GET', 'POST'])
 def filter_by_grade():
+
+    sem = ''
     if request.method == 'POST':
 
         sem = request.form.get('sem')
@@ -373,4 +375,10 @@ def filter_by_grade():
             students = filter_students(count=2, sem=sem, Grade=Selct_value)
             return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
 
-    return render_template('teacher/teacher_filter_by.html')
+    return render_template('teacher/teacher_filter_by.html', sem = sem)
+
+
+@TeacherViews.route("/view_grade")
+def view_grade():
+    sem = ''
+    return render_template('teacher/teacher_view_grade.html', SectionHeader="List", sem=sem)
