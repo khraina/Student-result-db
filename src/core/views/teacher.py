@@ -9,7 +9,7 @@ TeacherViews = Blueprint("TeacherViews", __name__)
 
 @TeacherViews.route("/")
 def home():
-    return "<H1>This a Teacher Homepage</H1>"
+    return render_template("teacher/teacher_home.html", SectionHeader="Dashboard")
 
 
 @TeacherViews.route("/addsub", methods=['POST', 'GET'])
@@ -120,7 +120,7 @@ def upload_csv():
                         data = Sem4(
                             RegNo=row['Reg.No'],
                             Name=row['Name'],
-                            batch= batch,
+                            batch=batch,
                             EST200=row['EST200'],
                             MCN202=row['MCN202'],
                             CST202=row['CST202'],
@@ -223,7 +223,8 @@ def upload_csv():
                         db.session.commit()
 
                 else:
-                    print(f"\n\nWarning exited without entering if\n\n {sem=} \n\n")
+                    print(
+                        f"\n\nWarning exited without entering if\n\n {sem=} \n\n")
 
                 flash('CSV file uploaded successfully!', 'success')
 
@@ -237,10 +238,10 @@ def upload_csv():
         flash('Invalid file format. Only CSV files are allowed!', 'error')
         return redirect(request.url)
 
-    return render_template("/teacher/teacher_upload.html")
+    return render_template("/teacher/teacher_upload.html", SectionHeader="Uploads")
 
 
-def filter_students_f(count: int, sem: int, Grade: str):
+def filter_students(count: int, sem: int, Grade: str):
 
     sem = int(sem)
     if sem == 1:
@@ -263,7 +264,6 @@ def filter_students_f(count: int, sem: int, Grade: str):
 
     # all_students = Sem4.query.all()
     students_f_grade = []
-    
 
     for student in all_students:
         if sem == 1:
@@ -339,8 +339,8 @@ def filter_students_f(count: int, sem: int, Grade: str):
     return students_f_grade
 
 
-@TeacherViews.route("/filter_by_grade_f", methods=['GET', 'POST'])
-def filter_by_grade_f():
+@TeacherViews.route("/filter_by_grade", methods=['GET', 'POST'])
+def filter_by_grade():
     if request.method == 'POST':
 
         sem = request.form.get('sem')
@@ -348,29 +348,29 @@ def filter_by_grade_f():
         grade = request.form.get('grade')
 
         if Selct_value == "1":
-            students = filter_students_f(count=1, sem=sem)
-            return render_template('filterbygrade/test.html', students=students, sem=sem)
+            students = filter_students(count=1, sem=sem)
+            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
 
         elif Selct_value == "2":
-            students = filter_students_f(count=2, sem=sem)
-            return render_template('filterbygrade/test.html', students=students, sem=sem)
+            students = filter_students(count=2, sem=sem)
+            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
 
         elif Selct_value == "3":
-            students = filter_students_f(count=3, sem=sem)
-            return render_template('filterbygrade/test.html', students=students, sem=sem)
+            students = filter_students(count=3, sem=sem)
+            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
 
         elif Selct_value == "4":
-            students = filter_students_f(count=4)
-            return render_template('filterbygrade/test.html', students=students, sem=sem)
+            students = filter_students(count=4)
+            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
 
         elif Selct_value == "5":
-            students = filter_students_f(count=5, sem=sem)
-            return render_template('filterbygrade/test.html', students=students, sem=sem)
+            students = filter_students(count=5, sem=sem)
+            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
         elif Selct_value == "5":
-            students = filter_students_f(count=5, sem=sem)
-            return render_template('filterbygrade/test.html', students=students, sem=sem)
+            students = filter_students(count=5, sem=sem)
+            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
         else:
-            students = filter_students_f(count=2, sem=sem, Grade=Selct_value)
-            return render_template('filterbygrade/test.html', students=students, sem=sem)
+            students = filter_students(count=2, sem=sem, Grade=Selct_value)
+            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
 
-    return render_template('filterbygrade/test.html')
+    return render_template('teacher/teacher_filter_by.html')

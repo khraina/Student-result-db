@@ -1,42 +1,82 @@
-{% extends 'base/base.html' %}
+{% extends 'base/newbase.html' %}
 
 <!-- Title -->
-{% block title %}Teacher - Upload{% endblock title %}
+{% block title %}Upload{% endblock title %}
 
 <!-- Start - Body -->
 {% block body %}
+<!--  -->
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container px-4">
+            <h1 class="mt-4">{{SectionHeader}}</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/teacher/upload">Dashboard</a></li>
+                <li class="breadcrumb-item active">Result Upload</li>
+            </ol>
 
-<form action="/teacher/uploads" method="POST" enctype="multipart/form-data">
-    <label for="Batch">Batch</label>
-    <input type="number" name="Batch" id="Batch" />
-    <label for="Sem">Semester</label>
-    <input type="number" name="Sem" id="Sem" />
+            <div class="card mb-3" style="max-width: 1000px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <!-- <img class="img-fluid rounded-start" src="static\images\upl.jpeg" alt="upload"> -->
+                        <img class="img-fluid rounded-start" src="{{ url_for('static', filename='images/upl.jpeg') }}"
+                            alt="upload">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Upload and attach files</h5>
+                            <br>
+                            <form method="POST" action="/teacher/upload" enctype="multipart/form-data">
+                                <div class="box-out">
 
-    <input type="file" name="file" id="file" />
-    <button type="submit">Submit</button>
-    <button type="reset">Clear Contents</button>
-</form>
+                                    <!--  -->
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text" for="inputGroupSelect02">Batch</label>
+                                                <select class="form-select" id="inputGroupSelect02">
+                                                    <option selected>Choose...</option>
+                                                    <option value="1">6</option>
+                                                    <option value="2">7</option>
+                                                    <option value="3">8</option>
+                                                    <option value="4">9</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="input-group mb-3">
+                                                <label class="input-group-text"
+                                                    for="inputGroupSelect03">Semester</label>
+                                                <select class="form-select" id="inputGroupSelect03">
+                                                    <option selected>Choose...</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
-<!-- Preview -->
-<!-- Start - If -->
-{% if data %}
 
-<!-- Student -->
-{% for student in student_list %}
+                                    <p>Click on the "Choose File" button to upload a file:</p>
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                        <input type="file" name="file" class="form-control" id="inputGroupFile02">
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-outline-success">Upload</button>
+                                    <button type="reset" class="btn btn-outline-secondary">Clear</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- data -->
-{{ student.id }} - {{ student.Sem }} - {{ student.SubCode }} <br />
-
-<!-- End - for -->
-{% endfor %}
-
-<!-- If no data is found -->
-{% else %}
-
-<h1>No data found</h1>
-
-<!-- End - if -->
-{% endif %}
-
-<!-- End Body -->
-{% endblock body %}
+        <!-- End Body -->
+        {% endblock body %}
