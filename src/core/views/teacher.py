@@ -12,24 +12,24 @@ def home():
     return render_template("teacher/teacher_home.html", SectionHeader="Dashboard")
 
 
-@TeacherViews.route("/addsub", methods=['POST', 'GET'])
-def addsub():
-    if request.method == 'POST':
+# @TeacherViews.route("/addsub", methods=['POST', 'GET'])
+# def addsub():
+#     if request.method == 'POST':
 
-        sem = request.form.get('Sem')
-        subCode = request.form.get('subcode')
+#         sem = request.form.get('Sem')
+#         subCode = request.form.get('subcode')
 
-        subject_entry = Subject(Sem=sem, SubCode=subCode)
+#         subject_entry = Subject(Sem=sem, SubCode=subCode)
 
-        db.session.add(subject_entry)
-        db.session.commit()
+#         db.session.add(subject_entry)
+#         db.session.commit()
 
-        return redirect("/teacher/addsub")
+#         return redirect("/teacher/addsub")
 
-    subject_list = Subject.query.all()
-    print(type(subject_list))
+#     subject_list = Subject.query.all()
+#     print(type(subject_list))
 
-    return render_template("teacher/teacher_add_subject.html", subject_list=subject_list)
+#     return render_template("teacher/teacher_add_subject.html", subject_list=subject_list)
 
 
 @TeacherViews.route('/uploads', methods=['GET', 'POST'])
@@ -378,7 +378,45 @@ def filter_by_grade():
     return render_template('teacher/teacher_filter_by.html', sem=sem)
 
 
-@TeacherViews.route("/view_grade", method=["GET", "POST"])
+@TeacherViews.route("/view_grade", methods=["GET", "POST"])
 def view_grade():
     sem = ''
+    if request.method == 'POST':
+
+        sem = request.form.get('sem')
+        batch = int(request.form.get('batch'))
+
+        Student_list = ""
+
+        if sem == "1":
+            students = Sem1.query.filter(batch=batch, sem=int(sem)).all()
+            return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+
+        elif sem == "2":
+            students = Sem2.query.filter(batch=batch, sem=int(sem)).all()
+            return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+
+        elif sem == "3":
+            students = Sem3.query.filter(batch=batch, sem=int(sem)).all()
+            return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+
+        elif sem == "4":
+            students = Sem4.query.filter(batch=batch, sem=int(sem)).all()
+            return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+
+        elif sem == "5":
+            students = Sem5.query.filter(batch=batch, sem=int(sem)).all()
+            return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+        elif sem == "6":
+            students = Sem6.query.filter(batch=batch, sem=int(sem)).all()
+            return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+        elif sem == "7":
+            students = Sem7.query.filter(batch=batch, sem=int(sem)).all()
+            return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+        elif sem == "8":
+            students = Sem8.query.filter(batch=batch, sem=int(sem)).all()
+            return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+
+        return render_template('teacher/teacher_view_grade.html', students=Student_list, SectionHeader="List", sem=sem)
+
     return render_template('teacher/teacher_view_grade.html', SectionHeader="List", sem=sem)
