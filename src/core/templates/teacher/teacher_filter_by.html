@@ -6,9 +6,20 @@
 <!-- Start - body -->
 {% block body %}
 
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container px-4">
+      <h1 class="mt-4">{{SectionHeader}}</h1>
+      <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/teacher/upload">Dashboard</a></li>
+        <li class="breadcrumb-item active">Result Viewer</li>
+      </ol>
+
+
+
 <div class="card">
   <div class="card-body">
-    <form class="row gx-3 gy-2 align-items-center">
+    <form class="row gx-3 gy-2 align-items-center" method="POST" action="/teacher/filter_by_grade">
 
       <div class="col-sm-5">
         <label class="visually-hidden" for="specificSizeInputGroupUsername">Register Number</label>
@@ -33,7 +44,9 @@
     </form>
   </div>
 </div>
-
+    </div>
+  </main>
+</div>
 
 {% endblock body %}
 <!-- End - body -->
