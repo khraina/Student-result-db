@@ -389,32 +389,32 @@ def view_grade():
         Student_list = ""
 
         if sem == "1":
-            students = Sem1.query.filter(batch=batch, sem=int(sem)).all()
+            students = Sem1.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "2":
-            students = Sem2.query.filter(batch=batch, sem=int(sem)).all()
+            students = Sem2.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "3":
-            students = Sem3.query.filter(batch=batch, sem=int(sem)).all()
+            students = Sem3.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "4":
-            students = Sem4.query.filter(batch=batch, sem=int(sem)).all()
+            students = Sem4.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "5":
-            students = Sem5.query.filter(batch=batch, sem=int(sem)).all()
+            students = Sem5.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
         elif sem == "6":
-            students = Sem6.query.filter(batch=batch, sem=int(sem)).all()
+            students = Sem6.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
         elif sem == "7":
-            students = Sem7.query.filter(batch=batch, sem=int(sem)).all()
+            students = Sem7.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
         elif sem == "8":
-            students = Sem8.query.filter(batch=batch, sem=int(sem)).all()
+            students = Sem8.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         return render_template('teacher/teacher_view_grade.html', students=Student_list, SectionHeader="List", sem=sem)
