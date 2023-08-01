@@ -25,7 +25,7 @@ Result Viewer
 
             <div class="col-sm-4">
               <label class="visually-hidden" for="specificSizeSelect1">Batch</label>
-              <select class="form-select" id="specificSizeSelect1">
+              <select class="form-select" name="batch" id="specificSizeSelect1">
                 <option selected>Batch</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -36,11 +36,11 @@ Result Viewer
 
             <div class="col-sm-4">
               <label class="visually-hidden" for="specificSizeSelect">Semester</label>
-              <select class="form-select" id="specificSizeSelect">
+              <select class="form-select" id="specificSizeSelect" name="sem">
                 <option selected>Semester</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="3">3</option>
+                <option value="4">4</option>
               </select>
             </div>
 
@@ -53,9 +53,133 @@ Result Viewer
         </div>
       </div>
     </div>
+    <br>
     <!-- Table - Start -->
     {% if sem %}
 
+    <!-- Semester 1 -->
+    {% if sem == 1 %}
+    <table class="table table-hover text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">SNo</th>
+          <th scope="col">RegNo</th>
+          <th scope="col">Name</th>
+          <th scope="col">PHT100</th>
+          <th scope="col">MAT101</th>
+          <th scope="col">HUN101</th>
+          <th scope="col">EST100</th>
+          <th scope="col">EST130</th>
+          <th scope="col">PHL120</th>
+          <th scope="col">ESL130</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.PHT100 }}</td>
+          <td>{{ student.MAT101 }}</td>
+          <td>{{ student.HUN101 }}</td>
+          <td>{{ student.EST100 }}</td>
+          <td>{{ student.EST130 }}</td>
+          <td>{{ student.PHL120 }}</td>
+          <td>{{ student.ESL130 }}</td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+
+    <!-- Semester 2 -->
+    {% if sem == 2 %}
+    <table class="table table-hover text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">SNo</th>
+          <th scope="col">RegNo</th>
+          <th scope="col">Name</th>
+          <th scope="col">EST120</th>
+          <th scope="col">CYT100</th>
+          <th scope="col">EST110</th>
+          <th scope="col">MAT102</th>
+          <th scope="col">EST102</th>
+          <th scope="col">HUN102</th>
+          <th scope="col">CYL120</th>
+          <th scope="col">ESL120</th>
+          <th scope="col">ESL102</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.EST120 }}</td>
+          <td>{{ student.CYT100 }}</td>
+          <td>{{ student.EST110 }}</td>
+          <td>{{ student.MAT102 }}</td>
+          <td>{{ student.EST102 }}</td>
+          <td>{{ student.HUN102 }}</td>
+          <td>{{ student.CYL120 }}</td>
+          <td>{{ student.ESL120 }}</td>
+          <td>{{ student.ESL102 }}</td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% else %}
+    <!-- Semester 4 -->
+    {% if sem == 4 %}
+    <table class="table table-hover text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">SNo</th>
+          <th scope="col">RegNo</th>
+          <th scope="col">Name</th>
+          <th scope="col">MAT206</th>
+          <th scope="col">CST202</th>
+          <th scope="col">CST204</th>
+          <th scope="col">CST206</th>
+          <th scope="col">EST200</th>
+          <th scope="col">MCN202</th>
+          <th scope="col">CSL202</th>
+          <th scope="col">CSL204</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.MAT206 }}</td>
+          <td>{{ student.CST202 }}</td>
+          <td>{{ student.CST204 }}</td>
+          <td>{{ student.CST206 }}</td>
+          <td>{{ student.EST200 }}</td>
+          <td>{{ student.MCN202 }}</td>
+          <td>{{ student.CSL202 }}</td>
+          <td>{{ student.CSL204 }}</td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% else %}
+
+    <!-- Semester 4 -->
+    {% endif %}
+    <!-- Semester 2 -->
+    {% endif %}
+    <!-- Semester 1 -->
+    {% endif %}
     <br>
     <div class="card" style="width: 80rem;">
       <div class="card-body">
@@ -99,7 +223,11 @@ Result Viewer
           </tbody>
         </table>
         {% else %}
-        <h1>No Records Found</h1>
+        <div class="alert alert-primary" role="alert">
+          <h4>No record found</h4>
+          try adding a file!
+        </div>
+        <!--  -->
         {% endif %}
 
       </div>
