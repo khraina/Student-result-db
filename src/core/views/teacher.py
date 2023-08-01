@@ -417,6 +417,6 @@ def view_grade():
             students = Sem8.query.filter(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
-        return render_template('teacher/teacher_view_grade.html', students=Student_list, SectionHeader="List", sem=sem)
+        return render_template('teacher/teacher_view_grade.html', students=students, SectionHeader="List", sem=sem)
 
     return render_template('teacher/teacher_view_grade.html', SectionHeader="List", sem=sem)
