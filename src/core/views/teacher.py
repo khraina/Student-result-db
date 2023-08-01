@@ -375,10 +375,10 @@ def filter_by_grade():
             students = filter_students(count=2, sem=sem, Grade=Selct_value)
             return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
 
-    return render_template('teacher/teacher_filter_by.html', sem = sem)
+    return render_template('teacher/teacher_filter_by.html', sem=sem)
 
 
-@TeacherViews.route("/view_grade")
+@TeacherViews.route("/view_grade", method=["GET", "POST"])
 def view_grade():
     sem = ''
     return render_template('teacher/teacher_view_grade.html', SectionHeader="List", sem=sem)
