@@ -134,6 +134,46 @@ Result Viewer
       </tbody>
     </table>
     {% else %}
+    <!-- Semester 3 -->
+    {% if sem == 3 %}
+    <table class="table table-hover text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">SNo</th>
+          <th scope="col">RegNo</th>
+          <th scope="col">Name</th>
+          <th scope="col">MAT203</th>
+          <th scope="col">CST201</th>
+          <th scope="col">CST203</th>
+          <th scope="col">CST205</th>
+          <th scope="col">HUT200</th>
+          <th scope="col">MCN201</th>
+          <th scope="col">CSL201</th>
+          <th scope="col">CSL203</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.MAT203 }}</td>
+          <td>{{ student.CST201 }}</td>
+          <td>{{ student.CST203 }}</td>
+          <td>{{ student.CST205}}</td>
+          <td>{{ student.HUT200}}</td>
+          <td>{{ student.MCN201}}</td>
+          <td>{{ student.CSL201}}</td>
+          <td>{{ student.CSL203}}</td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% else %}
+
     <!-- Semester 4 -->
     {% if sem == 4 %}
     <table class="table table-hover text-center table-bordered">
@@ -173,7 +213,180 @@ Result Viewer
     </table>
     {% else %}
 
+    <!-- Semester 5 -->
+    {% if sem == 5 %}
+    <table class="table table-hover text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">SNo</th>
+          <th scope="col">RegNo</th>
+          <th scope="col">Name</th>
+          <th scope="col">MCN301</th>
+          <th scope="col">CST301</th>
+          <th scope="col">CST303</th>
+          <th scope="col">CST305</th>
+          <th scope="col">CST307</th>
+          <th scope="col">CST309</th>
+          <th scope="col">CSL331</th>
+          <th scope="col">CSL333</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.MCN301 }}</td>
+          <td>{{ student.CST301 }}</td>
+          <td>{{ student.CST303 }}</td>
+          <td>{{ student.CST305 }}</td>
+          <td>{{ student.CST307 }}</td>
+          <td>{{ student.CST309 }}</td>
+          <td>{{ student.CSL331 }}</td>
+          <td>{{ student.CSL333 }}</td>
+  
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% else %}
+
+    <!-- Semester 6 -->
+    {% if sem == 6 %}
+    <table class="table table-hover text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">SNo</th>
+          <th scope="col">RegNo</th>
+          <th scope="col">Name</th>
+          <th scope="col">CST302</th>
+          <th scope="col">CST304</th>
+          <th scope="col">CST306</th>
+          <th scope="col">CST322</th>
+          <th scope="col">CST332</th>
+          <th scope="col">HUT300</th>
+          <th scope="col">CST308</th>
+          <th scope="col">CSL332</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.CST302 }}</td>
+          <td>{{ student.CST304 }}</td>
+          <td>{{ student.CST306 }}</td>
+          <td>{{ student.CST322 }}</td>
+          <td>{{ student.CST332 }}</td>
+          <td>{{ student.HUT300 }}</td>
+          <td>{{ student.CST308 }}</td>
+          <td>{{ student.CSL332 }}</td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% else %}
+
+    <!-- Semester 7 -->
+    {% if sem == 7 %}
+    <table class="table table-hover text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">SNo</th>
+          <th scope="col">RegNo</th>
+          <th scope="col">Name</th>
+          <th scope="col">CST401</th>
+          <th scope="col">CST423</th>
+          <th scope="col">CST433</th>
+          <th scope="col">MCN401</th>
+          <th scope="col">CSL411</th>
+          <th scope="col">CSQ413</th>
+          <th scope="col">CSD415</th>
+          <th scope="col">CST455</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.CST401 }}</td>
+          <td>{{ student.CST423 }}</td>
+          <td>{{ student.CST433 }}</td>
+          <td>{{ student.MCN401 }}</td>
+          <td>{{ student.CSL411 }}</td>
+          <td>{{ student.CSQ413 }}</td>
+          <td>{{ student.CSD415 }}</td>
+          <td>{{ student.CST455 }}</td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% else %}
+
+    <!-- Semester 8 -->
+    {% if sem == 8 %}
+    <table class="table table-hover text-center table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">SNo</th>
+          <th scope="col">RegNo</th>
+          <th scope="col">Name</th>
+          <th scope="col">CST402</th>
+          <th scope="col">CST434</th>
+          <th scope="col">CST414</th>
+          <th scope="col">CST466</th>
+          <th scope="col">CST416</th>
+          <th scope="col">CST428</th>
+          <th scope="col">CST448</th>
+          <th scope="col">CST404</th>
+          <th scope="col">CSD416</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ loop.index }}</td>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+          <td>{{ student.CST402 }}</td>
+          <td>{{ student.CST434 }}</td>
+          <td>{{ student.CST414 }}</td>
+          <td>{{ student.CST466 }}</td>
+          <td>{{ student.CST416 }}</td>
+          <td>{{ student.CST428 }}</td>
+          <td>{{ student.CST448 }}</td>
+          <td>{{ student.CST404 }}</td>
+          <td>{{ student.CSD416 }}</td>
+
+        </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+    {% else %}
+
+    <!-- Semester 8 -->
+    {% endif %}
+    <!-- Semester 7 -->
+    {% endif %}
+    <!-- Semester 6 -->
+    {% endif %}
+    <!-- Semester 5 -->
+    {% endif %}
     <!-- Semester 4 -->
+    {% endif %}
+    <!-- Semester 3 -->
     {% endif %}
     <!-- Semester 2 -->
     {% endif %}
