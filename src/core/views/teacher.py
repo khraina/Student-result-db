@@ -386,36 +386,44 @@ def view_grade():
         sem = request.form.get('sem')
         batch = int(request.form.get('batch'))
 
-        Student_list = ""
-
+        print(f"\n {sem=} \n \n")
+        
         if sem == "1":
-            students = Sem1.query.filter(batch=batch).all()
+            students = Sem1.query.filter_by(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "2":
-            students = Sem2.query.filter(batch=batch).all()
+            print(f"\n {sem=} \n \n")
+            students = Sem2.query.filter_by(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "3":
-            students = Sem3.query.filter(batch=batch).all()
+            print(f"\n {sem=} \n \n")
+            students = Sem3.query.filter_by(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "4":
-            students = Sem4.query.filter(batch=batch).all()
+            print(f"\n {sem=} \n \n")
+            students = Sem4.query.filter_by(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "5":
-            students = Sem5.query.filter(batch=batch).all()
+            print(f"\n {sem=} \n \n")
+            students = Sem5.query.filter_by(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
         elif sem == "6":
-            students = Sem6.query.filter(batch=batch).all()
+            print(f"\n {sem=} \n \n")
+            students = Sem6.query.filter_by(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
         elif sem == "7":
-            students = Sem7.query.filter(batch=batch).all()
+            print(f"\n {sem=} \n \n")
+            students = Sem7.query.filter_by(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
         elif sem == "8":
-            students = Sem8.query.filter(batch=batch).all()
+            students = Sem8.query.filter_by(batch=batch).all()
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
+        else :
+            print(f"nothing {sem=}")
 
         return render_template('teacher/teacher_view_grade.html', students=students, SectionHeader="List", sem=sem)
 

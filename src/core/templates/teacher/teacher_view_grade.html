@@ -21,24 +21,16 @@ Result Viewer
 
       <div class="card" style="width: 50rem;">
         <div class="card-body">
-          <form class="row gx-3 gy-2 align-items-center">
+          <form class="row gx-3 gy-2 align-items-center" action="/teacher/view_grade" method="POST">
 
             <div class="col-sm-4">
               <label class="visually-hidden" for="specificSizeSelect1">Batch</label>
               <select class="form-select" name="batch" id="specificSizeSelect1">
                 <option selected>Batch</option>
-<<<<<<< HEAD
-                <option value="1">6</option>
-                <option value="2">7</option>
-                <option value="3">8</option>
-                <option value="4">9</option>
-                <option value="5">10</option>
-=======
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="9">9</option>
->>>>>>> fd2b7938544dd390e2ce0e0057a7748206044967
               </select>
             </div>
 
@@ -71,7 +63,7 @@ Result Viewer
     {% if sem %}
 
     <!-- Semester 1 -->
-    {% if sem == 1 %}
+    {% if sem == "1" %}
     <table class="table table-hover text-center table-bordered">
       <thead>
         <tr>
@@ -149,7 +141,7 @@ Result Viewer
     </table>
     {% else %}
     <!-- Semester 3 -->
-    {% if sem == 3 %}
+    {% if sem == "3" %}
     <table class="table table-hover text-center table-bordered">
       <thead>
         <tr>
@@ -189,7 +181,7 @@ Result Viewer
     {% else %}
 
     <!-- Semester 4 -->
-    {% if sem == 4 %}
+    {% if sem == "4" %}
     <table class="table table-hover text-center table-bordered">
       <thead>
         <tr>
@@ -228,7 +220,7 @@ Result Viewer
     {% else %}
 
     <!-- Semester 5 -->
-    {% if sem == 5 %}
+    {% if sem == "5" %}
     <table class="table table-hover text-center table-bordered">
       <thead>
         <tr>
@@ -269,7 +261,7 @@ Result Viewer
     {% else %}
 
     <!-- Semester 6 -->
-    {% if sem == 6 %}
+    {% if sem == "6" %}
     <table class="table table-hover text-center table-bordered">
       <thead>
         <tr>
@@ -309,7 +301,7 @@ Result Viewer
     {% else %}
 
     <!-- Semester 7 -->
-    {% if sem == 7 %}
+    {% if sem == "7" %}
     <table class="table table-hover text-center table-bordered">
       <thead>
         <tr>
@@ -349,7 +341,7 @@ Result Viewer
     {% else %}
 
     <!-- Semester 8 -->
-    {% if sem == 8 %}
+    {% if sem == "8" %}
     <table class="table table-hover text-center table-bordered">
       <thead>
         <tr>
