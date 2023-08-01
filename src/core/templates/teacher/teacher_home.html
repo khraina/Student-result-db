@@ -1,0 +1,36 @@
+{% extends 'base/newbase.html' %}
+
+<!-- Title -->
+{% block title %}
+Dashboard
+{% endblock title %}
+
+<!-- Body -->
+{% block body %}
+<div id="layoutSidenav_content">
+  <main>
+    <div class="container-fluid px-4">
+      <h1 class="mt-4">{{ SectionHeader }}</h1>
+      <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Teacher</li>
+      </ol>
+    </div>
+  </main>
+  <div class="box-container">
+    <div class="box box1">
+      <div class="text">
+        <h2 class="topic-heading"><a class="nav-link" href="/teacher/uploads">Result Generation</a></h2>
+        <h2 class="topic">Upload the results</h2>
+      </div>
+    </div>
+
+    <div class="box box2">
+      <div class="text">
+        <h2 class="topic-heading"><a class="nav-link" href="/view">Result View</a></h2>
+        <h2 class="topic">View the results</h2>
+      </div>
+
+    </div>
+
+  </div>
+  {% endblock body %}
