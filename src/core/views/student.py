@@ -1,11 +1,11 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 StudentViews = Blueprint("StudentViews", __name__)
 
 
 @StudentViews.route("/")
 def home():
-    return "<H1>This a student Homepage</H1>"
+    return render_template("student/student_view.html", SectionHeader="View", sem="2")
 
 
 @StudentViews.route("/result")
