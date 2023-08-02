@@ -1,4 +1,4 @@
-{% extends 'base/newbase.html' %}
+{% extends 'base/base_student.html' %}
 
 <!-- Titel -->
 {% block title %}
@@ -14,13 +14,13 @@ Result Viewer
     <div class="container px-4">
       <h1 class="mt-4">{{SectionHeader}}</h1>
       <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="/student/upload">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/student/">/</a></li>
         <li class="breadcrumb-item active">Result Viewer</li>
       </ol>
 
       <div class="card">
         <div class="card-body">
-          <form class="row gx-3 gy-2 align-items-center" method="POST" action="/teacher/filter_by_grade">
+          <form class="row gx-3 gy-2 align-items-center" method="POST" action="/student/filter_by_grade">
       
             <div class="col-sm-5">
               <label class="visually-hidden" for="specificSizeInputGroupUsername">Register Number</label>
@@ -49,7 +49,7 @@ Result Viewer
               <button type="submit" class="btn btn-outline-success">Submit</button>
             </div>
             <div class="col-auto">
-              <a href="/teacher/filter_by_grade" class="btn btn-outline-dark">Filter</a>
+              <a href="/student/filter_by_grade" class="btn btn-outline-dark">Filter</a>
           </form>
         </div>
       </div>

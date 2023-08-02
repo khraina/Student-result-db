@@ -10,8 +10,7 @@ def home():
 
 @StudentViews.route("/result")
 def result():
-    return "<H1>This a student result page</H1>"
-
+    return render_template("student/loginstudent.html")
 
 @StudentViews.route("/filter_by")
 def filter_by():

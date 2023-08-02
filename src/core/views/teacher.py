@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, jsonify, url_for, flash
+from flask_login import login_required
 import pandas as pd
 from ..models import *
 from .. import db
@@ -6,33 +7,13 @@ import json
 
 TeacherViews = Blueprint("TeacherViews", __name__)
 
-
 @TeacherViews.route("/")
+@login_required
 def home():
     return render_template("teacher/teacher_home.html", SectionHeader="Dashboard")
 
-
-# @TeacherViews.route("/addsub", methods=['POST', 'GET'])
-# def addsub():
-#     if request.method == 'POST':
-
-#         sem = request.form.get('Sem')
-#         subCode = request.form.get('subcode')
-
-#         subject_entry = Subject(Sem=sem, SubCode=subCode)
-
-#         db.session.add(subject_entry)
-#         db.session.commit()
-
-#         return redirect("/teacher/addsub")
-
-#     subject_list = Subject.query.all()
-#     print(type(subject_list))
-
-#     return render_template("teacher/teacher_add_subject.html", subject_list=subject_list)
-
-
 @TeacherViews.route('/uploads', methods=['GET', 'POST'])
+@login_required
 def upload_csv():
     if request.method == 'POST':
 
@@ -260,9 +241,7 @@ def filter_students(count: int, sem: int, Grade: str):
         all_students = Sem7.query.all()
     elif sem == 8:
         all_students = Sem8.query.all()
-    # all_students = sem.query.all()
 
-    # all_students = Sem4.query.all()
     students_f_grade = []
 
     for student in all_students:
@@ -340,45 +319,24 @@ def filter_students(count: int, sem: int, Grade: str):
 
 
 @TeacherViews.route("/filter_by_grade", methods=['GET', 'POST'])
+@login_required
 def filter_by_grade():
 
     sem = ''
     if request.method == 'POST':
 
         sem = request.form.get('sem')
-        Selct_value = request.form.get('Select_value')
+        Count = int(request.form.get('Count'))
         grade = request.form.get('grade')
 
-        if Selct_value == "1":
-            students = filter_students(count=1, sem=sem)
-            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
-
-        elif Selct_value == "2":
-            students = filter_students(count=2, sem=sem)
-            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
-
-        elif Selct_value == "3":
-            students = filter_students(count=3, sem=sem)
-            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
-
-        elif Selct_value == "4":
-            students = filter_students(count=4)
-            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
-
-        elif Selct_value == "5":
-            students = filter_students(count=5, sem=sem)
-            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
-        elif Selct_value == "5":
-            students = filter_students(count=5, sem=sem)
-            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
-        else:
-            students = filter_students(count=2, sem=sem, Grade=Selct_value)
-            return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
-
+        students = filter_students(count=Count, sem=int(sem), Grade=grade)
+        return render_template('teacher/teacher_filter_by.html', students=students, sem=sem)
+    
     return render_template('teacher/teacher_filter_by.html', sem=sem)
 
 
 @TeacherViews.route("/view_grade", methods=["GET", "POST"])
+@login_required
 def view_grade():
     sem = ''
     if request.method == 'POST':

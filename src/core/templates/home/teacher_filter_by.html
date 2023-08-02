@@ -19,46 +19,47 @@ Result Viewer
       </ol>
 
 
-      <div class="card" style="width: 50rem;">
-        <div class="card-body">
-          <form class="row gx-3 gy-2 align-items-center" action="/teacher/view_grade" method="POST">
+<div class="card">
+  <div class="card-body">
+    <form class="row gx-3 gy-2 align-items-center" method="POST" action="/teacher/filter_by_grade">
 
-            <div class="col-sm-4">
-              <label class="visually-hidden" for="specificSizeSelect1">Batch</label>
-              <select class="form-select" name="batch" id="specificSizeSelect1">
-                <option selected>Batch</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="9">9</option>
-              </select>
-            </div>
-
-            <div class="col-sm-4">
-              <label class="visually-hidden" for="specificSizeSelect">Semester</label>
-              <select class="form-select" id="specificSizeSelect" name="sem">
-                <option selected>Semester</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-              </select>
-            </div>
-
-            <div class="col-auto">
-              <button type="submit" class="btn btn-outline-success">Submit</button>
-            </div>
-            <div class="col-auto">
-              <a href="/teacher/filter_by_grade" class="btn btn-outline-dark">Filter</a>
-          </form>
-        </div>
+      <div class="col-sm-3">
+        <label class="visually-hidden" for="Semester">Semester</label>
+        <select class="form-select" name="sem" id="Semester">
+          <option selected>Semester</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
       </div>
-    </div>
-    <br>
+      <div class="col-sm-3">
+        <label class="visually-hidden" for="Grade">Grade</label>
+        <select class="form-select" name="grade" id="Grade">
+          <option selected>Grade</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="col-sm-3">
+        <label class="visually-hidden" for="Grade_Count">Count</label>
+        <select class="form-select" name="sem" id="Grade_Count">
+          <option selected>Count</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+
+      <div class="col-auto">
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>    <br>
     <!-- Table - Start -->
     {% if sem %}
 

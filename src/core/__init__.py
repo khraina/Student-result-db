@@ -23,7 +23,7 @@ def MainApp():
     from .views.home import home
     from .views.student import StudentViews
     from .views.teacher import TeacherViews
-    # from .views.auth import auth_blueprint
+    from .auth import auth
 
     # blueprint mapping for the web application
     # url prefix for home
@@ -33,8 +33,7 @@ def MainApp():
     # url prefix for teacher
     app.register_blueprint(TeacherViews, url_prefix='/teacher')
     # url prefix for auth
-    # app.register_blueprint(auth_blueprint, url_prefix='/auth')
-
+    app.register_blueprint(auth, url_prefix='/auth')
     # import the models
     from .models import User
 
@@ -42,13 +41,13 @@ def MainApp():
         db.create_all()
 
     # user login
-    # login_manager = LoginManager()
-    # login_manager.login_view = 'auth.login'
-    # login_manager.init_app(app)
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
 
-    # @login_manager.user_loader
-    # def load_user(id):
-    #     return User.query.get(int(id))
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
     return app
 

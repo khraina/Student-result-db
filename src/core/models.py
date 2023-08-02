@@ -7,39 +7,6 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
-    students = db.relationship('Student', backref='user', lazy=True)
-    teachers = db.relationship('Teacher', backref='user', lazy=True)
-
-    def is_admin(self):
-        return self.secret == 'your_secret_key'  # Replace with your admin email
-
-
-class Student(db.Model):
-    __tablename__ = 'students'
-    id = db.Column(db.Integer, primary_key=True)
-    reg_no = db.Column(db.String(150))
-    name = db.Column(db.String(150))
-    batch = db.Column(db.Integer)
-    Earned_Credits = db.Column(db.Integer)
-    Cumilative_Credits = db.Column(db.Integer)
-    SGPA = db.Column(db.Integer)
-    CGPA = db.Column(db.Integer)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-
-class Teacher(db.Model):
-    __tablename__ = 'teachers'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(150))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    subject_id = db.Column(db.Integer, db.ForeignKey('subjects.id'))
-
-
-class Subject(db.Model):
-    __tablename__ = 'subjects'
-    id = db.Column(db.Integer, primary_key=True)
-    Sem = db.Column(db.Integer, nullable=False)
-    SubCode = db.Column(db.String(10))
 
 
 class Sem1(db.Model):
