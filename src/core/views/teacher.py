@@ -353,6 +353,7 @@ def view_grade():
         elif sem == "2":
             print(f"\n {sem=} \n \n")
             students = Sem2.query.filter_by(batch=batch).all()
+            print(f"\n {students=} \n \n")
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "3":
@@ -363,6 +364,7 @@ def view_grade():
         elif sem == "4":
             print(f"\n {sem=} \n \n")
             students = Sem4.query.filter_by(batch=batch).all()
+            print(f"\n {students=} \n \n")
             return render_template('teacher/teacher_view_grade.html', students=students, sem=sem)
 
         elif sem == "5":

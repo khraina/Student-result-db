@@ -2,31 +2,28 @@
 <html lang="en">
 
 <head>
-  <title>Academics &mdash; Website by Colorlib</title>
+  <title>{% block title %}
+    
+  {% endblock title %} </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-  <link rel="stylesheet" href="static/fonts/icomoon/style.css">
 
-  <link rel="stylesheet" href="static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="static/css/jquery-ui.css">
-  <link rel="stylesheet" href="static/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/fonts/icomoon/style.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/jquery-ui.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/owl.theme.default.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/owl.theme.default.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/jquery.fancybox.min.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/bootstrap-datepicker.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/fonts/flaticon/font/flaticon.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/aos.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/jquery.mb.YTPlayer.min.css')}}">  
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}"> 
 
-  <link rel="stylesheet" href="static/css/jquery.fancybox.min.css">
-
-  <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
-
-  <link rel="stylesheet" href="static/fonts/flaticon/font/flaticon.css">
-
-  <link rel="stylesheet" href="static/css/aos.css">
-  <link href="static/css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
-
-  <link rel="stylesheet" href="static/cssstyle/.css">
-
+<!-- ref -->
 
 
 </head>
@@ -49,14 +46,13 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-10 d-none d-lg-block">
-            
+             
             <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> +91 7654321890</a> 
             <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> academics123@gmail.com</a> 
           </div>
           <div class="col-lg-12 text-right">
-            <a href="/logins" class="small mr-3"><span class="icon-unlock-alt"></span>Student Login</a>
-            <a href="/logint" class="small mr-3"><span class="icon-unlock-alt"></span>Teacher Login</a>
-            <a href="/register" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>
+            <a href="/auth/login" class="small mr-3"><span class="icon-unlock-alt"></span> Teacher Login</a>
+            <a href="/auth/register" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>
           </div>
         </div>
       </div>
@@ -67,7 +63,8 @@
         <div class="d-flex align-items-center">
           <div class="site-logo">
             <a href="/" class="d-block">
-              <img src="static/images/logo.jpg" alt="Image" class="img-fluid">
+              
+              <img src="{{url_for('static', filename='/images/logo.jpg')}}"  alt="Image" class="img-fluid">
             </a>
           </div>
           <div class="mr-auto">
@@ -78,7 +75,7 @@
                 </li>
                 <li>
                   <a href="/about" class="nav-link text-left">About Us</a>
-                 
+                  
                 </li>
                 
                 <li>
@@ -100,8 +97,10 @@
         <div class="container">
           <div class="row align-items-end justify-content-center text-center">
             <div class="col-lg-7">
-              <h2 class="mb-0">Login as Teacher</h2>
-            </div>
+              <h2 class="mb-0">{% block heading  %}
+                
+              {% endblock heading  %}</h2>
+               </div>
           </div>
         </div>
       </div> 
@@ -111,7 +110,7 @@
       <div class="container">
         <a href="/">Home</a>
         <span class="mx-3 icon-keyboard_arrow_right"></span>
-        <span class="current">Login</span>
+        <span class="current">Register</span>
       </div>
     </div>
 
@@ -119,31 +118,9 @@
         <div class="container">
 
 
-            <div class="row justify-content-center">
-              <div class="col-md-5">
-                  <div class="row">
-                      <form action="/logint" method="post">
-                        <div class="col-md-12 form-group">
-                          
-                            <label for="email">Email</label>
-                            <input type="text" id="email" class="form-control form-control-lg" name="email">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label for="pword">Password</label>
-                            <input type="password" id="Password" class="form-control form-control-lg" name="password">
-                        </div>
-                      
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <input type="submit" value="Log In" class="btn btn-primary btn-lg px-5">
-                        </div>
-                  </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          
+            {% block body %}
+              
+            {% endblock body %}
 
           
         </div>
@@ -153,15 +130,14 @@
 
     <div class="footer">
       <div class="container">
-        
-
+       
         <div class="row">
           <div class="col-12">
             <div class="copyright">
                 <p>
                     
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-                    
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+                   
                     </p>
             </div>
           </div>
@@ -175,26 +151,29 @@
 
   <!-- loader -->
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
+<!-- ref -->
+    <script src="{{url_for('static', filename='/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/jquery-migrate-3.0.1.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/jquery-ui.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/owl.carousel.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/jquery.stellar.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/jquery.countdown.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/bootstrap-datepicker.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/jquery.easing.1.3.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/aos.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/jquery.fancybox.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/jquery.sticky.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/jquery.mb.YTPlayer.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/main.js')}}"></script>
+  
+  
+  
 
-  <script src="static/js/jquery-3.3.1.min.js"></script>
-  <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="static/js/jquery-ui.js"></script>
-  <script src="static/js/popper.min.js"></script>
-  <script src="static/js/bootstrap.min.js"></script>
-  <script src="static/js/owl.carousel.min.js"></script>
-  <script src="static/js/jquery.stellar.min.js"></script>
-  <script src="static/js/jquery.countdown.min.js"></script>
-  <script src="static/js/bootstrap-datepicker.min.js"></script>
-  <script src="static/js/jquery.easing.1.3.js"></script>
-  <script src="static/js/aos.js"></script>
-  <script src="static/js/jquery.fancybox.min.js"></script>
-  <script src="static/js/jquery.sticky.js"></script>
-  <script src="static/js/jquery.mb.YTPlayer.min.js"></script>
 
 
 
-
-  <script src="static/js/main.js"></script>
 
 </body>
 

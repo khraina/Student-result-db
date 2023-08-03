@@ -9,13 +9,18 @@ auth = Blueprint('auth', __name__)
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+
         email = request.form.get('email')
         password = request.form.get('password')
+
         hashed_password = generate_password_hash(password, method='sha256')
         new_user = User(email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
-        return redirect(url_for('login'))
+
+        flash('account register', category='success')
+        return redirect(url_for('auth.login'))
+    
     return render_template('teacher/teacher_register.html')  # Create this template
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -32,16 +37,14 @@ def login():
 
             flash('Logged in successfully!', category='success')
             login_user(user, remember=True)
-
             return redirect(url_for('TeacherViews.home'))
         else:
             flash('account does not exist.', category='error')
         
-    return render_template('teacher/teacher_register/.html') 
-# okay run aakate ok neeyw teacher_registerillot vanne ah ath? 
-# wait
+    return render_template('teacher/teacher_login.html') 
+
 @auth.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('auth.login'))
