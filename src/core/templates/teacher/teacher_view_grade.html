@@ -21,7 +21,7 @@ Result Viewer
 
       <div class="card" style="width: 50rem;">
         <div class="card-body">
-          <form class="row gx-3 gy-2 align-items-center" action="/teacher/view_grade" method="POST">
+          <form class="student gx-3 gy-2 align-items-center" action="/teacher/view_grade" method="POST">
 
             <div class="col-sm-4">
               <label class="visually-hidden" for="specificSizeSelect1">Batch</label>
@@ -201,6 +201,139 @@ Result Viewer
       <tbody>
         {% for student in students %}
         <tr>
+          <th scope="student">{{ student.id }}</th>
+          <td>{{ student.RegNo }}</td>
+          <td>{{ student.Name }}</td>
+    
+    
+          <!-- if block - F-->
+          {% if student.MAT206 == "F" %}
+          <td class="table-danger">{{ student.MAT206 }}</td>
+          {% else %}
+          <!-- if block - FE -->
+          {% if student.MAT206 == "FE" %}
+          <td class="table-warning">{{ student.MAT206 }}</td>
+          {% else %}
+          <td >{{ student.MAT206 }}</td>
+          <!-- if block - FE -->
+          {% endif %}
+          <!-- If Block - F-->
+          {% endif %}
+          
+          <!--  -->
+          <!-- if block - F-->
+          {% if student.CST202 == "F" %}
+          <td class="table-danger">{{ student.CST202 }}</td>
+          {% else %}
+          <!-- if block - FE -->
+          {% if student.CST202 == "FE" %}
+          <td class="table-warning">{{ student.CST202 }}</td>
+          {% else %}
+          <td >{{ student.CST202 }}</td>
+          <!-- if block - FE -->
+          {% endif %}
+          <!-- If Block - F-->
+          {% endif %}
+    
+          <!--  -->
+          <!-- if block - F-->
+          {% if student.CST204 == "F" %}
+          <td class="table-danger">{{ student.CST204 }}</td>
+          {% else %}
+          <!-- if block - FE -->
+          {% if student.CST204 == "FE" %}
+          <td class="table-warning">{{ student.CST204 }}</td>
+          {% else %}
+          <td >{{ student.CST204 }}</td>
+          <!-- if block - FE -->
+          {% endif %}
+          <!-- If Block - F-->
+          {% endif %}
+    
+          <!--  -->
+          <!-- if block - F-->
+          {% if student.CST206 == "F" %}
+          <td class="table-danger">{{ student.CST206 }}</td>
+          {% else %}
+          <!-- if block - FE -->
+          {% if student.CST206 == "FE" %}
+          <td class="table-warning">{{ student.CST206 }}</td>
+          {% else %}
+          <td >{{ student.CST206 }}</td>
+          <!-- if block - FE -->
+          {% endif %}
+          <!-- If Block - F-->
+          {% endif %}
+    
+          <!--  -->
+          <!-- if block - F-->
+          {% if student.EST200 == "F" %}
+          <td class="table-danger">{{ student.EST200 }}</td>
+          {% else %}
+          <!-- if block - FE -->
+          {% if student.EST200 == "FE" %}
+          <td class="table-warning">{{ student.EST200 }}</td>
+          {% else %}
+          <td >{{ student.EST200 }}</td>
+          <!-- if block - FE -->
+          {% endif %}
+          <!-- If Block - F-->
+          {% endif %}
+    
+          <!--  -->
+          <!-- if block - F-->
+          {% if student.MCN202 == "F" %}
+          <td class="table-danger">{{ student.MCN202 }}</td>
+          {% else %}
+          <!-- if block - FE -->
+          {% if student.MCN202 == "FE" %}
+          <td class="table-warning">{{ student.MCN202 }}</td>
+          {% else %}
+          <td >{{ student.MCN202 }}</td>
+          <!-- if block - FE -->
+          {% endif %}
+          <!-- If Block - F-->
+          {% endif %}
+          
+          <!--  -->
+          <!-- if block - F-->
+          {% if student.CSL202 == "F" %}
+          <td class="table-danger">{{ student.CSL202 }}</td>
+          {% else %}
+          <!-- if block - FE -->
+          {% if student.CSL202 == "FE" %}
+          <td class="table-warning">{{ student.CSL202 }}</td>
+          {% else %}
+          <td >{{ student.CSL202 }}</td>
+          <!-- if block - FE -->
+          {% endif %}
+          <!-- If Block - F-->
+          {% endif %}
+          
+          <!--  -->
+          <!-- if block - F-->
+          {% if student.CSL204 == "F" %}
+          <td class="table-danger">{{ student.CSL204 }}</td>
+          {% else %}
+          <!-- if block - FE -->
+          {% if student.CSL204 == "FE" %}
+          <td class="table-warning">{{ student.CSL204 }}</td>
+          {% else %}
+          <td >{{ student.CSL204 }}</td>
+          <!-- if block - FE -->
+          {% endif %}
+          <!-- If Block - F-->
+          {% endif %}
+    
+          
+          <td>{{ student.Earned_Credits }}</td>
+          <td>{{ student.Cumilative_Credits }}</td>
+          <td>{{ student.SGPA }}</td>
+          <td>{{ student.CGPA }}</td>
+        </tr>
+        {% endfor %}
+        <!-- {% for student in students %}
+        <tr>
           <td>{{ loop.index }}</td>
           <td>{{ student.RegNo }}</td>
           <td>{{ student.Name }}</td>
@@ -217,7 +350,7 @@ Result Viewer
 
       </tbody>
     </table>
-    {% else %}
+    {% else %} -->
 
     <!-- Semester 5 -->
     {% if sem == "5" %}
